@@ -15,7 +15,15 @@ class LightTester():
 
         start,end = self.coord_range (self.start,self.end)
     
-        return""
+        row_size = self.end[0] - self.start[0]
+        column_size = self.end[1] - self.start[1]
+
+
+        for x in range (self.start[0], self.start[0] + row_size +1, 1):
+            for y in range(self.start[1], self.start[1] + column_size +1, 1):
+                self.apply(self.command,x,y)
+
+        return self.lights
     
     
     def coord_range (self, coord1,coord2):
@@ -48,3 +56,9 @@ class LightTester():
         self.end2 = [self.end[0], self.end[1]]
 
         return self.start2,self.end2
+    
+    
+    
+    
+    def apply(self,command,x_coord,y_coord):
+        pass
