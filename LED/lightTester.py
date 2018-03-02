@@ -1,13 +1,18 @@
 
 
-class LightTester():
-
+class LightTester():  
+    ''' class that creates the LED board grid with size L X L. Each point on the grid is initalised to false. '''
 
     def __init__(self,grid_size):
         self.lights = [[False]*grid_size for x in range(grid_size)]
         
         
     def edit_grid(self, command, start, end):
+        ''' function that corrects coordinate ranges and forces changes on the grid
+        
+        this function corrects coordinate ranges by passing the coordinate arguments to coord_range which corrects ensures
+        that the coordinates are in the required range. This function forces changes on the grid by passing the command, 
+        x coordinate and y coordinate for each point on the rectangle to the apply function '''
 
         self.command = command
         self.start = start
@@ -28,7 +33,7 @@ class LightTester():
     
     
     def coord_range(self, coord1,coord2):
-
+        ''' function checks that the coordinates are within the range of the grid and if theyre not corrects them to the edge of the grid '''
         self.start = coord1
         self.end = coord2
 
@@ -62,7 +67,7 @@ class LightTester():
     
     
     def apply(self,command,x_coord,y_coord):
-        #print (x_coord,y_coord)
+        ''' function that applys changes to the grid by examining the command and applying command to the point on the grid '''
 
         self.command = command
         self.x_coord = x_coord
@@ -87,6 +92,7 @@ class LightTester():
 
 
     def count(self):
+        ''' function that counts how many lights are turned on on the grid.turned on lights have the value true'''
 
         count=0
         for idx1 in range (0, len(self.lights), 1 ):

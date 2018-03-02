@@ -2,8 +2,11 @@ import re
 from urllib.request import urlopen
 
 class Parser():
+    ''' Class that contains functions to parse files'''
+    
     def parse_files(files):
-
+        ''' function to parse a local or network file and return the first line which contains an int representing the grid size'''
+        
         if files.startswith('http'):
             with urlopen(files) as f:
                 first_line = int(f.readline().strip()) #Using int() because it returns it as b'num' without it (binary numebr)
@@ -17,6 +20,7 @@ class Parser():
     
     
     def find_instructions(line):
+        ''' function parses each recieved line into its command, start coordinates an end coordinates'''
 
         #finding the instruction and then converting it to a string
         instruction1 = re.findall(".*(turn on|turn off|switch).*",line)

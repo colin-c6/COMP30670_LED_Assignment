@@ -5,7 +5,7 @@ from LED.lightTester import LightTester
 import argparse
 
 def main():
-    """ Top level function which runs the program. """
+    """ function is top level function. """
 
     parser = argparse.ArgumentParser()
     parser.add_argument('--input', ) # --input is positional argument/.
