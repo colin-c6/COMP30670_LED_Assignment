@@ -16,23 +16,23 @@ class Parser():
     
     
     
-    def find_instructions(l):
+    def find_instructions(line):
 
-
-        instruction1 = re.findall(".*(turn on|turn off|switch).*",l)
+        #finding the instruction and then converting it to a string
+        instruction1 = re.findall(".*(turn on|turn off|switch).*",line)
         instruction = ''.join(instruction1)
-        coord = re.findall("\s*([+-]?\d+)\s*,\s*([+-]?\d+)\s*",l)
+        coordinates = re.findall("\s*([+-]?\d+)\s*,\s*([+-]?\d+)\s*",line)
     
-        first_coordinate = []
-        first_x = int(coord[0][0])
-        first_y = int(coord[0][1])
-        first_coordinate += first_x,first_y
+        start_coordinate = []
+        x1 = int(coordinates[0][0])
+        y1 = int(coordinates[0][1])
+        start_coordinate += x1,y1
     
-        second_coordinate = []
-        second_x = int(coord[1][0])
-        second_y = int(coord[1][1])
-        second_coordinate += second_x,second_y
+        end_coordinate = []
+        x2 = int(coordinates[1][0])
+        y2 = int(coordinates[1][1])
+        end_coordinate += x2,y2
 
 
-        return instruction, first_coordinate, second_coordinate
+        return instruction, start_coordinate, end_coordinate
 

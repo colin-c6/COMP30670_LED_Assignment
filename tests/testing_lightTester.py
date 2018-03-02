@@ -9,40 +9,39 @@ class Test_LED(unittest.TestCase):
     def setUp(self):
         self.led = LightTester(3)
         
-        
 
-         #Testing the given coordinates the limit function will switch the lights    
-    def test_limit_turnOn(self):
+    #Testing the given coordinates the edit_grid function will switch the lights    
+    def test_edit_grid_turnOn(self):
 
-        self.test_variable = self.led.limits("turn on", [1,0],[2,2])
+        self.test_variable = self.led.edit_grid("turn on", [1,0],[2,2])
         self.count = 0
-        for r in range (0, len(self.test_variable), 1 ):
-            for j in range (0, len(self.test_variable), 1):
-                if self.test_variable[r][j] == True:
+        for ind1 in range (0, len(self.test_variable), 1 ):
+            for ind2 in range (0, len(self.test_variable), 1):
+                if self.test_variable[ind1][ind2] == True:
                     self.count +=1
         self.assertEqual(self.count, 6,"lights not successfully turned on")  
         
     
-    #Testing the given coordinates the limit function will turn off the lights
-    def test_limit_turnOff(self):
+    #Testing the given coordinates the edit_grid function will turn off the lights
+    def test_edit_grid_turnOff(self):
 
-        self.test_variable = self.led.limits("turn off", [0,0],[1,1])
+        self.test_variable = self.led.edit_grid("turn off", [0,0],[1,1])
         self.count = 0
-        for r in range (0, len(self.test_variable), 1 ):
-            for j in range (0, len(self.test_variable), 1):
-                if self.test_variable[r][j] == True:
+        for ind1 in range (0, len(self.test_variable), 1 ):
+            for ind2 in range (0, len(self.test_variable), 1):
+                if self.test_variable[ind1][ind2] == True:
                     self.count +=1
         self.assertEqual(self.count, 0,"lights not successfully turned off")
         
     
-    #Testing the given coordinates the limit function will switch the lights
-    def test_limit_switch(self):
+    #Testing the given coordinates the edit_grid function will switch the lights
+    def test_edit_grid_switch(self):
 
-        self.test_variable = self.led.limits("switch", [0,0],[2,2])
+        self.test_variable = self.led.edit_grid("switch", [0,0],[2,2])
         self.count = 0
-        for r in range (0, len(self.test_variable), 1 ):
-            for j in range (0, len(self.test_variable), 1):
-                if self.test_variable[r][j] == True:
+        for ind1 in range (0, len(self.test_variable), 1 ):
+            for ind2 in range (0, len(self.test_variable), 1):
+                if self.test_variable[ind1][ind2] == True:
                     self.count +=1
         self.assertEqual(self.count, 9,"lights not successfully switched")
         
@@ -55,15 +54,15 @@ class Test_LED(unittest.TestCase):
         
      
      
-        # testing that the apply function successfully turns on lights on the grid     
+    # testing that the apply function successfully turns on lights on the grid     
     def test_turn_on(self):
 
         self.test_variable = self.led.apply("turn on", 0,2)
-
+        
         self.count = 0
-        for r in range (0, len(self.test_variable), 1 ):
-            for j in range (0, len(self.test_variable), 1):
-                if self.test_variable[r][j] == True:
+        for ind1 in range (0, len(self.test_variable), 1 ):
+            for ind2 in range (0, len(self.test_variable), 1):
+                if self.test_variable[ind1][ind2] == True:
                     self.count +=1
         self.assertEqual(self.count, 1, "Lights not successfully turned on")
 
@@ -73,9 +72,9 @@ class Test_LED(unittest.TestCase):
 
         self.test_variable = self.led.apply("turn off", 0,2)
         self.count = 0
-        for r in range (0, len(self.test_variable), 1 ):
-            for j in range (0, len(self.test_variable), 1):
-                if self.test_variable[r][j] == True:
+        for ind1 in range (0, len(self.test_variable), 1 ):
+            for ind2 in range (0, len(self.test_variable), 1):
+                if self.test_variable[ind1][ind2] == True:
                     self.count +=1
         self.assertEqual(self.count, 0, "Lights not successfully turned off")    
      
@@ -84,9 +83,9 @@ class Test_LED(unittest.TestCase):
 
         self.test_variable = self.led.apply("switch", 0,2)
         self.count = 0
-        for r in range (0, len(self.test_variable), 1 ):
-            for j in range (0, len(self.test_variable), 1):
-                if self.test_variable[r][j] == True:
+        for ind1 in range (0, len(self.test_variable), 1 ):
+            for ind2 in range (0, len(self.test_variable), 1):
+                if self.test_variable[ind1][ind2] == True:
                     self.count +=1
         self.assertEqual(self.count, 1,"Lights not successfully switched")    
         
