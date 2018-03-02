@@ -1,6 +1,6 @@
 
 from LED.parse import Parser
-from urllib.request import urlopen
+import urllib
 from LED.lightTester import LightTester
 import argparse
 
