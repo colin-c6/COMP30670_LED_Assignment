@@ -1,3 +1,9 @@
+
+from LED.parse import Parser
+from urllib.request import urlopen
+from LED.lightTester import LightTester
+import argparse
+
 def main():
     """ Top level function which runs the program. """
 
@@ -25,3 +31,6 @@ def main():
             for line in fi:      
                 instruction, start_point, end_point = Parser.find_instructions(line)
                 grid1.limits(instruction, start_point, end_point)
+                
+    
+    print("The number of lights turned on is:",grid1.count())

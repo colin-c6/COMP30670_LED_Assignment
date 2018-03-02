@@ -61,4 +61,35 @@ class LightTester():
     
     
     def apply(self,command,x_coord,y_coord):
-        pass
+        #print (x_coord,y_coord)
+
+        self.command= command
+        self.x_coord = x_coord
+        self.y_coord = y_coord
+
+
+        if self.command == "turn on":
+            self.lights[x_coord][y_coord] = True
+
+        elif self.command == "turn off":
+            self.lights[x_coord][y_coord] = False
+
+        elif self.command == "switch":
+            if self.lights[x_coord][y_coord] == True:
+                self.lights[x_coord][y_coord] = False
+            else:
+                self.lights[x_coord][y_coord] = True
+
+
+        return self.lights
+
+
+    def count(self):
+
+        count=0
+        for r in range (0, len(self.lights), 1 ):
+            for j in range (0, len(self.lights), 1):
+                if self.lights[r][j] == True:
+                    count +=1
+
+        return count
